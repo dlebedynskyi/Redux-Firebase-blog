@@ -7,15 +7,18 @@
     "watch": "webpack-dev-server --config ./webpack/webpack.Development.config --colors",
     "build": "rimraf dist && webpack --config ./webpack/webpack.Production.config --colors",
     "start": "node index.js",
-    "test": "mocha --compilers js:babel-core/register --reporter spec --recursive ./test"
+    "test": "ava --concurrency=5",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Dmytro Lebedynskyi",
   "license": "ISC",
-  "engines": {
-    "node": ">=5.0.0"
+  "devEngines": {
+    "node": "5.x",
+    "npm": "3.x"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
+    "ava": "^0.15.2",
     "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.6.0",
@@ -37,7 +40,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
-    "mocha": "^2.5.3",
+    "ignore-styles": "^4.0.0",
     "node-sass": "^3.8.0",
     "postcss-loader": "^0.9.1",
     "proxyquire": "^1.7.10",
@@ -68,6 +71,21 @@
     "redux-immutablejs": "0.0.8",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.spec.js"
+    ],
+    "source": [
+      "src/**/*.{js,jsx}"
+    ],
+    "failFast": true,
+    "require": [
+      "babel-register",
+			"ignore-styles",
+      "./testSetup"
+    ],
+    "babel": "inherit"
   },
   "repository": {
     "type": "git",

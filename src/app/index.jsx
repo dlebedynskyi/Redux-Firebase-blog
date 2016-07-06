@@ -13,7 +13,7 @@ const store = configureStore(initialState, routerMiddleware(browserHistory));
 const routes = buildRoutes();
 
 const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState: state => state.get('routing').toJS(),
+  selectLocationState: state => state.get('routing').toJS()
 });
 
 const root = document.getElementById('root');
