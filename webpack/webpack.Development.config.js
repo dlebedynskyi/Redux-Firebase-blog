@@ -26,7 +26,7 @@ const webpackConfig = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
 		alias: {
-			appSettings: Path.join(__dirname, '../src/config/development')
+			appSettings: Path.join(__dirname, '../src/config/config')
 		}
   },
   module: {
