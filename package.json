@@ -1,6 +1,6 @@
 {
   "name": "redux-firebase-blog",
-  "version": "0.1.0"
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "test": ""
@@ -8,6 +8,7 @@
   "author": "Dmytro Lebedynskyi",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
@@ -15,6 +16,12 @@
     "chai-immutable": "^1.6.0",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.3.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
     "mocha": "^2.5.3",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.4",
@@ -23,13 +30,27 @@
   },
   "dependencies": {
     "babel-core": "^6.10.4",
+    "classnames": "^2.2.5",
     "firebase": "^3.1.0",
     "immutable": "^3.8.1",
     "normalize.css": "^4.2.0",
+    "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
+    "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router-redux": "^4.0.5",
-    "redux-immutable": "^3.0.6",
+    "react-toolbox": "^1.0.1",
+    "redux": "^3.5.2",
+    "redux-immutablejs": "0.0.8",
     "redux-promise": "^0.5.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlebedynskyi/Redux-Firebase-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dlebedynskyi/Redux-Firebase-blog/issues"
+  },
+  "homepage": "https://github.com/dlebedynskyi/Redux-Firebase-blog#readme",
+  "description": ""
 }
