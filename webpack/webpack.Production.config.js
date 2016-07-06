@@ -2,8 +2,12 @@ const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const PORT = 3000;
 const ROOT_PUBLIC = Path.resolve('wwwroot');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractSASS = new ExtractTextPlugin('/styles/app.[hash].css', {
+  allChunks: true,
+});
+
 const LOCAL_IDENT_NAME =
   'localIdentName=[path][name]---[local]---[hash:base64:5]';
 const CSS_LOADER = `css?sourceMap&modules&importLoaders=1&${LOCAL_IDENT_NAME}` +
@@ -12,15 +16,11 @@ const CSS_LOADER = `css?sourceMap&modules&importLoaders=1&${LOCAL_IDENT_NAME}` +
 const THEME_FILE = 'src/app/styles/toolbox-theme.scss';
 
 const webpackConfig = {
-  devtool: 'cheap-module-source-map',
-  entry: [
-    `webpack-dev-server/client?http://localhost:${PORT}`,
-    'webpack/hot/dev-server',
-    Path.join(__dirname, '../src/app/index'),
-  ],
+  devtool: 'source-map',
+  entry: [Path.join(__dirname, '../src/app/index')],
   output: {
     path: Path.join(__dirname, '../dist'),
-    filename: '/scripts/app.js',
+    filename: '/scripts/app.[hash].js',
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -47,22 +47,31 @@ const webpackConfig = {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml',
       },
-      {
-        test: /\.scss$/,
-        loaders: ['style', CSS_LOADER],
-      },
     ],
   },
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
+    ExtractSASS,
     new HtmlWebpackPlugin({
       template: Path.join(__dirname, '../src/index.html'),
     }),
-    new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.optimize.OccurenceOrderPlugin(),
+    new Webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        screw_ie8: true,
+        keep_fnames: true,
+        warnings: false,
+      },
+      mangle: {
+        screw_ie8: true,
+        keep_fnames: true,
+      },
+    }),
+    new Webpack.optimize.AggressiveMergingPlugin(),
   ],
   postcss: [autoprefixer({
     browsers: ['last 2 versions'],
@@ -72,13 +81,9 @@ const webpackConfig = {
   },
 };
 
-webpackConfig.devServer = {
-  contentBase: Path.join(__dirname, '../'),
-  hot: true,
-  port: PORT,
-  inline: true,
-  progress: true,
-  historyApiFallback: true,
-};
+webpackConfig.module.loaders.push({
+  test: /\.scss$/,
+  loader: ExtractSASS.extract('style', CSS_LOADER),
+});
 
 module.exports = webpackConfig;

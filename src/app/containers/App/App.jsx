@@ -1,24 +1,28 @@
 import React from 'react';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
-import Link from 'react-toolbox/lib/link';
+import {Link} from 'react-router';
 import styles from './app.scss';
 
-const App = () => (
+const App = ({children}) => (
   <div className={styles.container}>
     <AppBar fixed flat>
       <div className={styles.left}>
-        <Link href="/home" icon="home" label="Home" />
-        <Link href="/about" icon="description" label="About" />
+        <Link to="home">Home</Link>
+        <Link to="about">About</Link>
       </div>
       <Navigation type="horizontal">
-        <Link label="Sign In" icon="perm_identity" />
+        <Link to="about">Sign in</Link>
       </Navigation>
     </AppBar>
     <div className={styles.body}>
-      Content
+      {children}
     </div>
   </div>
 );
+
+App.propTypes = {
+  children: React.PropTypes.node,
+};
 
 export default App;

@@ -21,5 +21,8 @@
     "no-use-before-define": [2, {"functions": false, "classes": true}],
     "no-console": 0,
     "indent": 0,
+    "object-curly-spacing": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-space-before-closing" : [1, "never"],
   }
 }

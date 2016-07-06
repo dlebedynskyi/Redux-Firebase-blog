@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux-immutablejs';
-import root from './rootReducer';
+import routing from './routing';
 
 const index = combineReducers({
-  root,
+  routing,
 });
 
 export default index;
