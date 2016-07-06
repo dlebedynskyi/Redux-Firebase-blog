@@ -11,11 +11,7 @@ const CSS_LOADER = `css?sourceMap&modules&importLoaders=1&${LOCAL_IDENT_NAME}` +
   `?root=${ROOT_PUBLIC}!postcss-loader!sass?sourceMap`;
 
 const THEME_FILE = 'src/app/styles/toolbox-theme.scss';
-const ENV = 'development';
 
-const appSettingsBase = require(Path.join(__dirname, '../appSettings.json'));
-const appSettingEnv = require(Path.join(__dirname, `../appSettings.${ENV}.json`));
-const appSettings = Object.assign({}, appSettingsBase, appSettingEnv || {});
 const webpackConfig = {
   devtool: 'cheap-module-source-map',
   entry: [
@@ -29,6 +25,9 @@ const webpackConfig = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
+		alias: {
+			appSettings: Path.join(__dirname, '../src/config/development')
+		}
   },
   module: {
     loaders: [{
@@ -61,8 +60,7 @@ const webpackConfig = {
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(ENV),
-				APP_SETTINGS: appSettings
+        NODE_ENV: JSON.stringify('development')
       },
     }),
     new HtmlWebpackPlugin({

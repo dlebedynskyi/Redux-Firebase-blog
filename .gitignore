@@ -2,3 +2,5 @@
 node_modules/
 dist
 appSettings.*.json
+
+src/config/config.js

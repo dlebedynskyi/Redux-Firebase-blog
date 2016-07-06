@@ -5,10 +5,11 @@ import {Router, browserHistory} from 'react-router';
 import {syncHistoryWithStore, routerMiddleware} from 'react-router-redux';
 import configureStore from './common/configureStore';
 import buildRoutes from './routes';
-
+import config from 'appSettings'; //eslint-disable-line
 import './styles/global.scss';
 
-const initialState = Object.assign({}, window.INITIAL_STATE, process.env.APP_SETTINGS || {});
+console.log('config', config);
+const initialState = Object.assign({}, window.INITIAL_STATE || {}, config || {});
 const store = configureStore(initialState, routerMiddleware(browserHistory));
 
 const routes = buildRoutes();
