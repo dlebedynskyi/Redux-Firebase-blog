@@ -15,5 +15,11 @@
 
   "globals": {
     "assert": false
+  },
+
+  "rules": {
+    "no-use-before-define": [2, {"functions": false, "classes": true}],
+    "no-console": 0,
+    "indent": 0,
   }
 }
