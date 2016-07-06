@@ -8,8 +8,9 @@ import buildRoutes from './routes';
 
 import './styles/global.scss';
 
-const initialState = window.INITIAL_STATE;
+const initialState = Object.assign({}, window.INITIAL_STATE, process.env.APP_SETTINGS || {});
 const store = configureStore(initialState, routerMiddleware(browserHistory));
+
 const routes = buildRoutes();
 
 const history = syncHistoryWithStore(browserHistory, store, {

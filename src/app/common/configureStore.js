@@ -2,14 +2,15 @@ import reducer from '../reducers';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
+import {fromJS} from 'immutable';
 /**
  * Method to configure default store
- *
  * @param initial - default store state
  * @returns configured redux store
  */
 const configure = (initial, ...midlewares) => {
-  const store = createStore(reducer, initial, compose(
+	const imDefault = fromJS(initial || {});
+  const store = createStore(reducer, imDefault, compose(
 		// thunk, promise and rest of middlewares
     applyMiddleware(thunk, promise, ... midlewares),
 

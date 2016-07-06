@@ -83,7 +83,7 @@
     "require": [
       "babel-register",
 			"ignore-styles",
-      "./testSetup"
+      "./test/testSetup"
     ],
     "babel": "inherit"
   },

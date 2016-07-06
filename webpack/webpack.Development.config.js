@@ -4,13 +4,18 @@ const Webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const PORT = 3000;
 const ROOT_PUBLIC = Path.resolve('wwwroot');
+
 const LOCAL_IDENT_NAME =
   'localIdentName=[path][name]---[local]---[hash:base64:5]';
 const CSS_LOADER = `css?sourceMap&modules&importLoaders=1&${LOCAL_IDENT_NAME}` +
   `?root=${ROOT_PUBLIC}!postcss-loader!sass?sourceMap`;
 
 const THEME_FILE = 'src/app/styles/toolbox-theme.scss';
+const ENV = 'development';
 
+const appSettingsBase = require(Path.join(__dirname, '../appSettings.json'));
+const appSettingEnv = require(Path.join(__dirname, `../appSettings.${ENV}.json`));
+const appSettings = Object.assign({}, appSettingsBase, appSettingEnv || {});
 const webpackConfig = {
   devtool: 'cheap-module-source-map',
   entry: [
@@ -56,7 +61,8 @@ const webpackConfig = {
   plugins: [
     new Webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify(ENV),
+				APP_SETTINGS: appSettings
       },
     }),
     new HtmlWebpackPlugin({
