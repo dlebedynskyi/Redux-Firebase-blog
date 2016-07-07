@@ -4,8 +4,7 @@ import { SIGN_IN_COMPLETE, SIGN_OUT_START } from '../constants/auth';
 
 const initialState = fromJS({
   isAuthentificated: false,
-  user: null,
-  error: null
+  user: null
 });
 
 /**
@@ -15,8 +14,7 @@ export default createReducer(initialState, {
   [SIGN_IN_COMPLETE]: (state, { payload }) =>
     state.merge({
       isAuthentificated: !!payload,
-      user: payload || null,
-      error: null
+      user: payload || null
     }),
   [SIGN_OUT_START]: (state) =>
     state.merge({
