@@ -1,17 +1,19 @@
 import firebase from 'firebase';
 import { auth } from './firebase';
-import doSetUser from '../actions/auth/doSetUser';
+import doSignInComplete from '../actions/auth/doSignInComplete';
 
 const signInWithProvider = (provider) => auth().signInWithPopup(provider);
 
 const signInWithGoogle = () => signInWithProvider(new firebase.auth.GoogleAuthProvider());
+
+const signOut = () => auth().signOut();
 
 const init = (dispatch) =>
   (new Promise((resolve, reject) => {
     const unsub = auth()
       .onAuthStateChanged(
         user => {
-          dispatch(doSetUser(user));
+          dispatch(doSignInComplete(user));
           unsub();
           resolve();
         },
@@ -19,4 +21,4 @@ const init = (dispatch) =>
       );
   }));
 
-export { init, signInWithGoogle };
+export { init, signInWithGoogle, signOut };

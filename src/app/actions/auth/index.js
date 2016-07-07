@@ -1,4 +1,5 @@
-import doSetUser from './doSetUser';
+import doSignInComplete from './doSignInComplete';
 import doSignInWithGoogle from './doSignInWithGoogle';
+import doSignout from './doSignout';
 
-export {doSetUser, doSignInWithGoogle};
+export {doSignInComplete, doSignInWithGoogle, doSignout};
