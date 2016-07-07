@@ -1,0 +1,24 @@
+.card {
+	margin: 3rem auto;
+	width: 40rem;
+	height: 70vh;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	button {
+		width: 80%;
+		margin: 1rem auto;
+	}
+}
+
+.container {
+	padding-top: 7rem;
+	flex-grow: 1;
+	height: 100%;
+	background: url("https://images.unsplash.com/photo-1460400408855-36abd76648b9?dpr=1&auto=format&crop=entropy&fit=crop&w=1663&h=1109&q=80") no-repeat center center fixed;
+	background-size: cover;
+}

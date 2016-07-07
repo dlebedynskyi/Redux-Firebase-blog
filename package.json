@@ -67,6 +67,7 @@
     "react-router": "^2.5.2",
     "react-router-redux": "^4.0.5",
     "react-toolbox": "^1.0.1",
+    "recompose": "^0.20.2",
     "redux": "^3.5.2",
     "redux-immutablejs": "0.0.8",
     "redux-promise": "^0.5.3",
@@ -82,7 +83,7 @@
     "failFast": true,
     "require": [
       "babel-register",
-			"ignore-styles",
+      "ignore-styles",
       "./test/testSetup"
     ],
     "babel": "inherit"

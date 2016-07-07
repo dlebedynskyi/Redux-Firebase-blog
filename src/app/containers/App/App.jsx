@@ -11,9 +11,7 @@ const App = ({children}) => (
         <Link to="home">Home</Link>
         <Link to="about">About</Link>
       </div>
-      <Navigation type="horizontal">
-        <Link to="about">Sign in</Link>
-      </Navigation>
+      <Navigation type="horizontal"/>
     </AppBar>
     <div className={styles.body}>
       {children}
