@@ -4,6 +4,7 @@ import About from './containers/About';
 import Signin from './containers/Signin';
 import Create from './containers/Create';
 import Post from './containers/Post';
+import Edit from './containers/Edit';
 
 import urls from './constants/routes';
 import { isAuthentificated } from './selectors/auth';
@@ -39,6 +40,11 @@ export default (getState) => {
 			{
 				path: urls.CREATE,
 				component: Create,
+				onEnter: requiredAuth(getState)
+			},
+			{
+				path: `${urls.EDIT}/:id`,
+				component: Edit,
 				onEnter: requiredAuth(getState)
 			},
 			{

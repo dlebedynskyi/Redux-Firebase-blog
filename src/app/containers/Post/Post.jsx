@@ -16,6 +16,7 @@ const Post = ({
 	addComment,
 	removeComment,
 	removePost,
+	editPost,
 	uid
 }) => {
 	if (!isLoaded) {
@@ -24,7 +25,7 @@ const Post = ({
 	return (
 		<div className={styles.container}>
 			{post
-				? <Full post={post} uid={uid} onDelete={removePost}/>
+				? <Full post={post} uid={uid} onDelete={removePost} onEdit={editPost}/>
 				: <h4>
 					Post Count not be found.
 				</h4>
@@ -47,7 +48,8 @@ Post.propTypes = {
 	commentsList: ImProp.list,
 	addComment: React.PropTypes.func.isRequired,
 	removeComment: React.PropTypes.func.isRequired,
-	removePost: React.PropTypes.func.isRequired
+	removePost: React.PropTypes.func.isRequired,
+	editPost: React.PropTypes.func.isRequired
 };
 
 export {Post};

@@ -17,7 +17,6 @@ import * as posts from '../../selectors/posts';
 import * as comments from '../../selectors/comments';
 import * as auth from '../../selectors/auth';
 
-
 const mapStateToProps = (state, {params}) => ({
 	isAuthentificated: auth.isAuthentificated(state),
 	id: params.id,
@@ -53,6 +52,7 @@ const hoc = compose(
 
 	withHandlers({
 		addComment: ({addComment, id}) => (content) => addComment(id, content),
+		editPost: ({id, router}) => () => router.push(`${urls.EDIT}/${id}`),
 		removeComment: ({removeComment, id}) => (commentId) => removeComment(id, commentId),
 		removePost: ({removePost, id, router}) => () => {
 			removePost(id);
