@@ -12,8 +12,8 @@ const toRecord = item => {
 const toList = (items) => {
 	const list = (Object.values(items) || []).map(toRecord);
 	const mapped = new List(list);
-	const ordered = mapped.sortBy(e => e.get('datetime'));
-	return ordered.reverse();
+	// return mapped;
+	return mapped.sortBy(e => e.get('datetime')).reverse();
 };
 
 export {toRecord, toList};

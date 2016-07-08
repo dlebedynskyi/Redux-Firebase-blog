@@ -1,10 +1,10 @@
 import { createReducer } from 'redux-immutablejs';
 import { fromJS } from 'immutable';
-import { SAVE_POSTS, SET_PAGE } from '../constants/posts';
+import { SAVE_POSTS, SET_PAGE } from '../../constants/posts';
 
 const initialState = fromJS({
   list: [],
-	totalPages: 0,
+		totalPages: 0,
   page: 0,
   size: 10
 });

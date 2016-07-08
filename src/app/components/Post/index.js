@@ -1,2 +1,3 @@
 import Short from './Short';
-export {Short};
+import Full from './Full';
+export {Short, Full};

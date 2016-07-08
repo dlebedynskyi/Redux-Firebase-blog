@@ -17,13 +17,13 @@ test.beforeEach(() => {
   doSignInWithGoogle = proxyquire(
     '../../../src/app/actions/auth/doSignInWithGoogle', {
       '../../services/auth': { signInWithGoogle },
-      './doSigninStart': { default: doSigninStart },
-      './doSignInComplete': { default: doSignInComplete }
+      './doSigninStart': { 'default': doSigninStart },
+      './doSignInComplete': { 'default': doSignInComplete }
     }).default;
 });
 
 test('actions/doSignInWithGoogle should handle signin flow', (t) => {
-	const user = 'FAKE';
+	const user = {user: 'FAKE'};
 	doSigninStart.returns('SIGN_IN');
 	doSignInComplete.withArgs('FAKE').returns('COMPLETE');
 	signInWithGoogle.returns(Promise.resolve(user));

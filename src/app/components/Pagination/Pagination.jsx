@@ -36,7 +36,7 @@ const Pagination = ({current, total, next, previous, className}) => {
       <div>
         <IconButton icon="keyboard_arrow_left" disabled={current === 0} onClick={previous}/>
 				<span> Page {current + 1} of {total} </span>
-        <IconButton icon="keyboard_arrow_right" disabled={current === total} onClick={next}/>
+        <IconButton icon="keyboard_arrow_right" disabled={current + 1 === total} onClick={next}/>
       </div>
     </Card>
   );

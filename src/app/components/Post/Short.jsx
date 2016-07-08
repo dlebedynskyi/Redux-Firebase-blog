@@ -9,7 +9,7 @@ import pure from 'recompose/pure';
 
 import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {Button} from 'react-toolbox/lib/button';
-import moment from 'moment';
+import subTitle from '../helpers/subTitle';
 import styles from './post.scss';
 
 const propTypes = {
@@ -18,28 +18,30 @@ const propTypes = {
   className: React.PropTypes.string
 };
 
-const hoc = compose(setPropTypes(propTypes), withHandlers({
-  open: ({open, post}) => () => open && open(post)
-}), pure);
+const hoc = compose(
+	setPropTypes(propTypes),
+	withHandlers({
+		open: ({open, post}) => () => open && open(post)
+	}),
+	pure);
 
-const Short = ({post, className}) => {
-  const classes = classnames(className, styles.post);
-  const time = post.get('datetime')
-    ? moment(post.get('datetime')).format('dddd, MMMM Do YYYY, h:mm:ss a')
-    : '';
- const at = time ? ` on ${time}` : '';
+const Short = ({post, className, open}) => {
+  const classes = classnames(className, styles.post, styles.short);
+
   return (
     <Card className={classes}>
-      <CardTitle title={post.get('title')} subtitle={`By ${post.get('username')} ${at}`}/>
+      <CardTitle
+							title={post.get('title')}
+							subtitle={subTitle(post)}/>
       <div className={styles.content}>
         {post.get('content')}
       </div>
       <CardActions>
-        <Button label="See full"/>
+        <Button label="See full" onClick={open}/>
       </CardActions>
     </Card>
   );
-}
+};
 
 Short.propTypes = propTypes;
 

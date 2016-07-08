@@ -1,0 +1,34 @@
+@import "../../styles/animations.scss";
+
+.comment {
+	margin: 1rem 0;
+	@include animate-left-bottom();
+
+	.title {
+		padding-top: 0.2rem;
+		padding-bottom: 0;
+		flex-grow: 1;
+	}
+
+	.text {
+		padding-bottom: 0.5rem;
+	}
+
+	.headRow {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;;
+	}
+
+	.actions {
+		padding-top: 0;
+	}
+}
+
+.input {
+	padding: 0 1rem;
+}
+
+.list {
+	margin-top: 1rem;
+}

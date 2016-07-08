@@ -3,11 +3,14 @@ import {connect} from 'react-redux';
 import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
+import {withRouter} from 'react-router';
 
 import {Button} from 'react-toolbox/lib/button';
 import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import styles from './create.scss';
 import Input from 'react-toolbox/lib/input';
+
+import urls from '../../constants/routes';
 
 import doCreatePost from '../../actions/posts/doCreatePost';
 
@@ -16,13 +19,17 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const hoc = compose(
+	withRouter,
 	connect(null, mapDispatchToProps),
 	withState('title', 'setTitle', ''),
 	withState('text', 'setText', ''),
   withHandlers({
 		setTitle: ({setTitle}) => value => setTitle(value),
 		setText: ({setText}) => value => setText(value),
-		create: ({create, title, text}) => () => create(title, text)
+		create: ({create, title, text, router}) => () => {
+			create(title, text);
+			router.push(urls.HOME);
+		}
 	}));
 
 const Create = ({title, text, setTitle, setText, create}) => (

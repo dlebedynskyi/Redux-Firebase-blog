@@ -9,22 +9,33 @@
         "mocha": true
     },
 
-  "plugins": [
-    "react"
-  ],
-
   "globals": {
     "assert": false
   },
 
   "rules": {
-    "no-use-before-define": [2, {"functions": false, "classes": true}],
-    "no-console": 0,
-    "indent": 0,
-    "comma-dangle": 0,
-    "object-curly-spacing": 0,
-    "react/jsx-indent": 0,
-    "react/jsx-space-before-closing" : [1, "never"],
-    "react/jsx-closing-bracket-location": 0
+				"no-use-before-define": [2, {"functions": false, "classes": true}],
+	   "indent": 0,
+				"key-spacing": 1,
+				"spaced-comment": 1,
+	   "space-before-function-paren": 0,
+	   "object-curly-spacing": 0,
+				"object-shorthand" : 1,
+				"no-param-reassign" : 0,
+				"quote-props": [2, "as-needed", { "keywords": true }],
+				"max-len": 0,
+				"arrow-body-style": [1, "as-needed"],
+	   "comma-dangle": 0,
+	   "no-console": 0,
+				"dot-notation": 1,
+				"react/jsx-indent": 0,
+				"react/jsx-indent-props": 0,
+				"react/jsx-first-prop-new-line": 0,
+				"react/jsx-space-before-closing" : [1, "never"],
+				"react/jsx-no-bind" : [2, {"allowArrowFunctions" : true}],
+				"react/jsx-closing-bracket-location" : 0,
+				"react/prefer-stateless-function" : 1,
+				"no-multiple-empty-lines": 0,
+				"no-trailing-spaces": 0
   }
 }

@@ -1,17 +1,21 @@
 import { database } from '../../services/firebase';
-import doSavePosts from './doSavePosts';
-import {toList} from './mapping';
+import { toList } from './mapping';
+import { SAVE_POSTS } from '../../constants/posts';
 
 const doGetPosts = () => (dispatch) => {
-  const posts = database().ref('posts');
-  const query = posts.limitToLast(100);
+	const posts = database().ref('posts');
+	const query = posts.limitToLast(100);
 
-	query.once('value')
-		.then((result) => {
-			const val = result.val() || {};
-			const list = toList(val);
-			dispatch(doSavePosts(list));
-  });
+	query.off();
+	query.on('value', result => {
+		const val = result.val() || {};
+		const list = toList(val);
+
+		dispatch({
+			type: SAVE_POSTS,
+			payload: list
+		});
+	});
 };
 
 export default doGetPosts;

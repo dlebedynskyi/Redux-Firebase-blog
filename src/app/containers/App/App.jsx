@@ -15,65 +15,70 @@ import doSignout from '../../actions/auth/doSignout';
 const mapStateToProps = (state) => ({isAuthentificated: selector.isAuthentificated(state)});
 
 const mapDispatchToProps = (dispatch) => ({
-  signout: () => dispatch(doSignout())
+	signout: () => dispatch(doSignout())
 });
 
-const hoc = compose(connect(mapStateToProps, mapDispatchToProps), withRouter, withHandlers({
-  toSignin: ({router}) => () => router.replace(urls.SIGN_IN),
-  toHome: ({router}) => () => router.replace(urls.HOME),
-  toAbout: ({router}) => () => router.replace(urls.ABOUT),
-  toCreate: ({router}) => () => router.replace(urls.CREATE)
-}), lifecycle({
-  componentWillReceiveProps(nextProps) {
-    const {isAuthentificated, toSignin, toHome} = nextProps;
-    if (this.props.isAuthentificated && !isAuthentificated) {
-      toSignin();
-    } else if (!this.props.isAuthentificated && isAuthentificated) {
-      toHome();
-    }
-  }
-}));
+const hoc = compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withRouter,
+	withHandlers({
+		toSignin: ({router}) => () => router.push(urls.SIGN_IN),
+		toHome: ({router}) => () => router.push(urls.HOME),
+		toAbout: ({router}) => () => router.push(urls.ABOUT),
+		toCreate: ({router}) => () => router.push(urls.CREATE)
+	}),
+	lifecycle({
+		componentWillReceiveProps(nextProps) {
+			const {isAuthentificated, toSignin, toHome} = nextProps;
+			if (this.props.isAuthentificated && !isAuthentificated) {
+				toSignin();
+			} else if (!this.props.isAuthentificated && isAuthentificated) {
+				toHome();
+			}
+		}
+	}));
 
 const App = ({
-  children,
-  signout,
-  isAuthentificated,
-  toHome,
-  toAbout,
-  toCreate
+	children,
+	signout,
+	isAuthentificated,
+	toHome,
+	toAbout,
+	toCreate
 }) => (
-  <div className={styles.container}>
-    <AppBar fixed flat>
-      <div className={styles.left}>
-        {isAuthentificated
-          ? (<Button flat onClick={toHome} label="Home"/>)
-          : null}
-        <Button flat onClick={toAbout} label="About"/>
-      </div>
+	<div className={styles.container}>
+		<AppBar fixed flat>
+			<div className={styles.left}>
+				{isAuthentificated
+					? (<Button flat onClick={toHome} label="Recent Posts"/>)
+					: null}
+				<Button flat onClick={toAbout} label="About"/>
+			</div>
 
-      {isAuthentificated
-        ? (
-          <Navigation type="horizontal">
-            <Button primary onClick={toCreate} label="Create"/>
-            <Button flat onClick={signout} label="Sign out"/>
-          </Navigation>
-        )
-        : null
-      }
+			{isAuthentificated
+				? (
+					<Navigation type="horizontal">
+						<Button primary onClick={toCreate} label="Create"/>
+						<Button flat onClick={signout} label="Sign out"/>
+					</Navigation>
+				)
+				: null
+}
 
-    </AppBar>
-    <div className={styles.body}>
-      {children}
-    </div>
-  </div>
+		</AppBar>
+		<div className={styles.body}>
+			{children}
+		</div>
+	</div>
 );
 
 App.propTypes = {
-  children: React.PropTypes.node,
-  isAuthentificated: React.PropTypes.bool,
-  signout: React.PropTypes.func.isRequired,
-  toHome: React.PropTypes.func.isRequired,
-  toAbout: React.PropTypes.func.isRequired
+	children: React.PropTypes.node,
+	isAuthentificated: React.PropTypes.bool,
+	signout: React.PropTypes.func.isRequired,
+	toHome: React.PropTypes.func.isRequired,
+	toAbout: React.PropTypes.func.isRequired,
+	toCreate: React.PropTypes.func.isRequired
 };
 
 export {App};

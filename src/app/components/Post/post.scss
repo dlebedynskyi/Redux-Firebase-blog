@@ -1,8 +1,35 @@
+@import "../../styles/animations.scss";
 .post {
+	@include animate-left-bottom();
 	.content {
 		padding: 2rem;
+	}
+}
+
+.headRow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	.title {
 		flex-grow: 1;
-		max-height: 30rem;
-		overflow-y: auto;
+	}
+}
+
+.short {
+	.content {
+		position: relative;
+		max-height: 10rem;
+		overflow: hidden;
+		/* exactly three lines */
+		&:after {
+			content: "";
+			text-align: right;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 70%;
+			height: 1.2em;
+			background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+		}
 	}
 }

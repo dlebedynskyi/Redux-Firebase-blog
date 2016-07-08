@@ -7,7 +7,7 @@ import doSignInComplete from './doSignInComplete';
 const doSignInWithGoogle = () => (dispatch) => {
   dispatch(doSignInStart());
   return signInWithGoogle()
-    .then(result => dispatch(doSignInComplete(result)));
+    .then(result => dispatch(doSignInComplete(result.user)));
 };
 
 export default doSignInWithGoogle;
