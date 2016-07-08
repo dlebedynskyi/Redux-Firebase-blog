@@ -1,32 +1,20 @@
 {
-	"posts" : [
-		{
-			"id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
-			"title": "My Blog Post 1",
-			"content": "Some content for a blog post.",
-			"username": "sampleUser",
-			"datetime": "2016­01­30T19:13:39+00:00"
-		},
-		{
-			"id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
-			"title": "My Blog Post 2",
-			"content": "Some content for a blog post.",
-			"username": "sampleUser",
-			"datetime": "2016­02­30T19:13:39+00:00"
-		},
-		{
-			"id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
-			"title": "My Blog Post 3",
-			"content": "Some content for a blog post.",
-			"username": "sampleUser",
-			"datetime": "2016­03­30T19:13:39+00:00"
-		}
-	],
-  "comments": [{
-    "id": "29ba27a0­7a97­40b0­9754­8f8b04cc8432",
-    "post_id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
-    "content": "A comment to a blog post.",
-    "username": "sampleUser",
-    "datetime": "2016­06­30T19:13:39+00:00"
-  }]
+  "posts": {
+    "2c0f759c­1440­4c95­9669­0dcfb364127d": {
+      "id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
+      "title": "My Blog Post 1",
+      "content": "Some content for a blog post.",
+      "username": "sampleUser",
+      "datetime": "2016-07-01T17:55:13-07:00"
+    }
+  },
+  "comments": {
+    "29ba27a0­7a97­40b0­9754­8f8b04cc8432": {
+      "id": "29ba27a0­7a97­40b0­9754­8f8b04cc8432",
+      "post_id": "2c0f759c­1440­4c95­9669­0dcfb364127d",
+      "content": "A comment to a blog post.",
+      "username": "sampleUser",
+      "datetime": "2016-07-01T17:55:13-07:00"
+    }
+  }
 }

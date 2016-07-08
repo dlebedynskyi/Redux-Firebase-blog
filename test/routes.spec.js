@@ -26,7 +26,7 @@ test('routes: should have child routes', () => {
 	const routes = construct();
 	chai.expect(routes).to.exist();
 	chai.expect(routes.childRoutes).to.be.an('Array');
-	chai.expect(routes.childRoutes.length).to.equal(3);
+	chai.expect(routes.childRoutes.length).to.equal(4);
 });
 
 test('routes: should have Home route', () => {

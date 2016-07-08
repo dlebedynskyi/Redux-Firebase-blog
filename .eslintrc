@@ -25,5 +25,6 @@
     "object-curly-spacing": 0,
     "react/jsx-indent": 0,
     "react/jsx-space-before-closing" : [1, "never"],
+    "react/jsx-closing-bracket-location": 0
   }
 }

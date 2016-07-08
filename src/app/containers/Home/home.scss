@@ -1,0 +1,32 @@
+.container {
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	.content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		overflow-y:auto;
+
+		.post {
+			width: 60rem;
+			margin: 2rem;
+		}
+	}
+	.pagination {
+		height: auto;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}
+@media (max-width: 1200px) {
+	.content {
+		.post {
+			width: 95vw;
+		}
+	}
+}
