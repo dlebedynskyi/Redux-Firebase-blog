@@ -9,7 +9,7 @@ test('services/auth init should have onAuthStateChanged registered', (t) => {
 
   const init = proxyquire('../../../src/app/services/auth/init', {
     '../firebase': { auth },
-    '../../actions/auth/doSignInComplete': { default: doSignInComplete }
+    '../../actions/auth/doSignInComplete': { 'default': doSignInComplete }
   }).default;
 
   const user = 'USER';

@@ -17,8 +17,8 @@ test.beforeEach(() => {
   doSignout = proxyquire(
     '../../../src/app/actions/auth/doSignout', {
       '../../services/auth': { signOut },
-      './doSignoutStart': { default: doSignoutStart },
-      './doSignoutComplete': { default: doSignoutComplete }
+      './doSignoutStart': {'default': doSignoutStart },
+      './doSignoutComplete': {'default': doSignoutComplete }
     }).default;
 });
 
