@@ -28,6 +28,15 @@ $background: rgb(240, 240, 240);
 	}
 }
 
+.user{
+		font-size: 1.4rem;
+ 	font-weight: 500;
+		color: black;
+		line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
 .body {
 	padding-top: $header-height;
 	overflow: auto;

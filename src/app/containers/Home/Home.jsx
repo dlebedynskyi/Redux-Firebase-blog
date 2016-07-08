@@ -47,7 +47,7 @@ const hoc = compose(
 
 const Home = ({page, current, total, navigateTo, toFullPost}) => (
 	<div className={styles.container}>
-		<h2> Recent Posts </h2>
+		<h2 className={styles.head}> Recent Posts </h2>
 		<div className={styles.content}>
 			<div>
 				{page && page.size

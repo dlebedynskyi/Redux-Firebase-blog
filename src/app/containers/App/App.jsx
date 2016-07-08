@@ -12,7 +12,10 @@ import {connect} from 'react-redux';
 import * as selector from '../../selectors/auth';
 import doSignout from '../../actions/auth/doSignout';
 
-const mapStateToProps = (state) => ({isAuthentificated: selector.isAuthentificated(state)});
+const mapStateToProps = (state) => ({
+	isAuthentificated: selector.isAuthentificated(state),
+	name: selector.getName(state)
+});
 
 const mapDispatchToProps = (dispatch) => ({
 	signout: () => dispatch(doSignout())
@@ -42,6 +45,7 @@ const App = ({
 	children,
 	signout,
 	isAuthentificated,
+	name,
 	toHome,
 	toAbout,
 	toCreate
@@ -58,7 +62,8 @@ const App = ({
 			{isAuthentificated
 				? (
 					<Navigation type="horizontal">
-						<Button primary onClick={toCreate} label="Create"/>
+						<Button primary onClick={toCreate} label="Create" icon="add"/>
+						{name ? <span className={styles.user}> {name} </span> : null}
 						<Button flat onClick={signout} label="Sign out"/>
 					</Navigation>
 				)
@@ -78,6 +83,7 @@ App.propTypes = {
 	signout: React.PropTypes.func.isRequired,
 	toHome: React.PropTypes.func.isRequired,
 	toAbout: React.PropTypes.func.isRequired,
+	name: React.PropTypes.string,
 	toCreate: React.PropTypes.func.isRequired
 };
 

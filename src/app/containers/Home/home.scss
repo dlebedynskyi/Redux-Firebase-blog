@@ -7,7 +7,9 @@ $max-width: 1200px;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-
+ .head {
+		padding-top: 1rem;
+	}
 	.content {
 		width: 100%;
 		position: relative;

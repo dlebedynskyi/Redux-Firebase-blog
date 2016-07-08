@@ -12,10 +12,7 @@ const getAuth = (state) => state.get('auth');
  */
 const isAuthentificated = (state) => !!getAuth(state).get('isAuthentificated');
 
-const getUid = state => {
-	const auth = getAuth(state);
-	const uid = auth.getIn(['user', 'uid']);
-	return uid;
-};
+const getUid = state => getAuth(state).getIn(['user', 'uid']);
+const getName = state => getAuth(state).getIn(['user', 'displayName']);
 
-export { getAuth, isAuthentificated, getUid };
+export { getAuth, isAuthentificated, getUid, getName};
