@@ -10,11 +10,11 @@
 	flex-direction: column;
 
 	.text {
-		 	flex-grow: 1;
-			padding: 2rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
+		flex-grow: 1;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
 		.body {
 			flex-grow: 1;
@@ -22,15 +22,12 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			
-			div[data-react-toolbox="input"] {
-				flex-grow: 1;
 
-				textarea[role="input"] {
-					height: 95%;
+			:global {
+				.public-DraftEditor-content{
+					min-height: 50rem;
 				}
 			}
 		}
 	}
-
 }

@@ -1,16 +1,19 @@
 import React from 'react';
 
 import ImProp from 'react-immutable-proptypes';
-import compose from 'recompose/compose';
-// import withHandlers from 'recompose/withHandlers';
-import setPropTypes from 'recompose/setPropTypes';
+import styles from './post.scss';
 import classnames from 'classnames';
+
+import compose from 'recompose/compose';
+import setPropTypes from 'recompose/setPropTypes';
 import pure from 'recompose/pure';
 import withHandlers from 'recompose/withHandlers';
+
 import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {IconButton} from 'react-toolbox/lib/button';
+
 import subTitle from '../helpers/subTitle';
-import styles from './post.scss';
+import asHtml from '../helpers/markup';
 
 const propTypes = {
 	post: ImProp.map.isRequired,
@@ -39,10 +42,7 @@ const Full = ({post, uid, className, onDelete}) => {
 						: null}
 				</CardActions>
 			</div>
-
-			<div className={styles.content}>
-				{post.get('content')}
-			</div>
+			<div className={styles.content} dangerouslySetInnerHTML={asHtml(post.get('content'))}/>
 		</Card>
 	);
 };

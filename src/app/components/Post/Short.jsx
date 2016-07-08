@@ -10,6 +10,7 @@ import pure from 'recompose/pure';
 import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {Button} from 'react-toolbox/lib/button';
 import subTitle from '../helpers/subTitle';
+import asHtml from '../helpers/markup';
 import styles from './post.scss';
 
 const propTypes = {
@@ -33,9 +34,7 @@ const Short = ({post, className, open}) => {
       <CardTitle
 							title={post.get('title')}
 							subtitle={subTitle(post)}/>
-      <div className={styles.content}>
-        {post.get('content')}
-      </div>
+      <div className={styles.content} dangerouslySetInnerHTML={asHtml(post.get('content'))}/>
       <CardActions>
         <Button label="See full" onClick={open}/>
       </CardActions>
