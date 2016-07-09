@@ -17,6 +17,7 @@ Demo of app is available at https://redux-blog-533c0.firebaseapp.com
 - Redux
 - Redux-Thunk
 - Redux-promise
+- React-toolbox for material design
 - React-rte editor
 - Moment
 - Firebase SDK 3 with OAuth authentication
@@ -37,7 +38,6 @@ Demo of app is available at https://redux-blog-533c0.firebaseapp.com
 - Proxyquire
 
 ## Quick Start
----------------
 ```shell
 $ git clone https://github.com/dlebedynskyi/Redux-Firebase-blog
 $ cd Redux-Firebase-blog
