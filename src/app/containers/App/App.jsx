@@ -48,14 +48,13 @@ const App = ({
 	name,
 	toHome,
 	toAbout,
+	toSignin,
 	toCreate
 }) => (
 	<div className={styles.container}>
 		<AppBar fixed flat>
 			<div className={styles.left}>
-				{isAuthentificated
-					? (<Button flat onClick={toHome} label="Recent Posts"/>)
-					: null}
+				<Button flat onClick={toHome} label="Recent Posts"/>
 				<Button flat onClick={toAbout} label="About"/>
 			</div>
 
@@ -67,7 +66,11 @@ const App = ({
 						<Button flat onClick={signout} label="Sign out"/>
 					</Navigation>
 				)
-				: null
+				: (
+					<Navigation type="horizontal">
+						<Button primary raised onClick={toSignin} label="Sign In" icon="account_circle"/>
+					</Navigation>
+				)
 }
 
 		</AppBar>
@@ -84,7 +87,8 @@ App.propTypes = {
 	toHome: React.PropTypes.func.isRequired,
 	toAbout: React.PropTypes.func.isRequired,
 	name: React.PropTypes.string,
-	toCreate: React.PropTypes.func.isRequired
+	toCreate: React.PropTypes.func.isRequired,
+	toSignin: React.PropTypes.func.isRequired
 };
 
 export {App};

@@ -30,8 +30,7 @@ export default (getState) => {
 		},
 		childRoutes: [{
 				path: urls.HOME,
-				component: Home,
-				onEnter: requiredAuth(getState)
+				component: Home
 			},
 			{
 				path: urls.ABOUT,
@@ -54,8 +53,11 @@ export default (getState) => {
 			},
 			{
 				path: `${urls.POST}/:id`,
-				component: Post,
-				onEnter: requiredAuth(getState)
+				component: Post
+			},
+			{
+				path: '*',
+				component: Home
 			}
 		],
 	};

@@ -45,10 +45,6 @@ $ npm install
 $ npm run watch
 ```
 
-## Node.js Version  v5.X & npm v3.X
-Application is build and verified to run using npm 3.x and node 5.x.
-At this moment Enzyme does not support Node.js v6 yet. As soon as it is available dev bundle can be updated. This only effect development and component testing using Enzyme and has no effect on Production run.
-
 ## Deploying to Firebase
 #### Prerequisites:
 - Create a free Firebase account at https://firebase.google.com
