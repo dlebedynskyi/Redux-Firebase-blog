@@ -2,7 +2,7 @@
 
 Very simple blog app developed using React Redux Firebase.  
 
-Sample show how to create, update and delete html posts, write and delete comments.    
+Sample app shows how to create, update and delete html posts, write and delete comments.    
 
 User management is handle using firebase providers. As example Google provider is being used.
 
