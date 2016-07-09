@@ -1,0 +1,11 @@
+$background: rgb(240, 240, 240);
+$background-contrast: #efefef;
+
+$panels-background: #fff;
+$panels-contrast: #111;
+
+@mixin background() {
+	background-color: $background;
+	background: url("https://pixabay.com/static/uploads/photo/2015/09/06/00/38/blueberries-926681_960_720.jpg") no-repeat center center fixed;
+	background-size: cover;
+}

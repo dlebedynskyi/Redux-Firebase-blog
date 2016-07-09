@@ -43,7 +43,7 @@ const Full = ({post, uid, className, onDelete, onEdit}) => {
 						? <IconButton icon="delete_forever" label="Delete" flat title="delete" onClick={onDelete}/>
 						: null}
 						{hasAccess
-							? <IconButton icon="text_fields" label="Edit" flat title="Edit" onClick={onEdit}/>
+							? <IconButton icon="edit" label="Edit" flat title="Edit" onClick={onEdit}/>
 							: null}
 				</CardActions>
 			</div>

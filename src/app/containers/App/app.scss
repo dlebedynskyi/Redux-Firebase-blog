@@ -1,11 +1,12 @@
+@import "../../styles/app.scss";
+
 $header-height: 4rem;
-$background: rgb(240, 240, 240);
 
 .container {
 	display: flex;
 	width: 100%;
 	height: 100%;
-	background-color: $background;
+ @include background();
 	justify-content: space-between;
 	flex-direction: column;
 
@@ -13,7 +14,8 @@ $background: rgb(240, 240, 240);
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		background-color: white;
+		background: $panels-background;
+		color: $panels-contrast;
 		height: $header-height;
 
 		.left {
@@ -31,7 +33,7 @@ $background: rgb(240, 240, 240);
 .user{
 		font-size: 1.4rem;
  	font-weight: 500;
-		color: black;
+
 		line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0;

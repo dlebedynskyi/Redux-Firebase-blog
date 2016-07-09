@@ -9,18 +9,6 @@
 	}
 }
 
-@mixin transition() {
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-}
-
-@mixin easingOutQuadTimingTransition($duration) {
-    @include transition();
-    transition-property: none;
-    transition-duration: $duration;
-    transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-}
-
 /*----------------------------------------------------------------*/
 /*  @ Custom Animation Keyframes
 /*----------------------------------------------------------------*/

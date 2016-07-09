@@ -1,6 +1,8 @@
+@import "../../styles/app.scss";
 .container {
 	padding: 2rem;
 	h4{
+		color: $background-contrast;
 		padding:2rem;
 	}
 }

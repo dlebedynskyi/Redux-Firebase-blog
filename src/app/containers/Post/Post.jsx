@@ -1,4 +1,3 @@
-/* eslint no-useless-escape: 0 */
 import React from 'react';
 import ImProp from 'react-immutable-proptypes';
 import styles from './post.scss';

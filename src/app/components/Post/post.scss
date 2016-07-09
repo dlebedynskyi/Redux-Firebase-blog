@@ -1,4 +1,5 @@
 @import "../../styles/animations.scss";
+
 .post {
 	@include animate-left-bottom();
 	.content {
@@ -18,8 +19,9 @@
 .short {
 	.content {
 		position: relative;
-		max-height: 10rem;
+		max-height: 20rem;
 		overflow: hidden;
+
 		/* exactly three lines */
 		&:after {
 			content: "";
