@@ -15,7 +15,7 @@ import urls from '../src/app/constants/routes';
 chai.use(dirtyChai);
 
 const editRoute = `${urls.EDIT}/:id`;
-const postRoute = `${urls.POST}/:id`;
+const postRoute = `${urls.POST}/:id/(:title)`;
 
 const shoudHaveAccessCheck = (url) => {
 	test(
