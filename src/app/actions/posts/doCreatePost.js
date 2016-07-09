@@ -1,6 +1,12 @@
 import { auth, database } from '../../services/firebase';
 import { toString } from '../../services/dates';
-
+/**
+ * Action to Create new post.
+	* Will use currentUser as post author.
+	* Will throw error if use is not authorized.
+ * @param title - post title
+	* @param content - post content
+ */
 const doCreatePost = (title, content) =>
 	(dispatch, getState) => {
 		const state = getState();

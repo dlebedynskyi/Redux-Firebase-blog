@@ -28,5 +28,5 @@ Signin.propTypes = {
 	signIn: React.PropTypes.func.isRequired
 };
 
-export {Signin};
+export {hoc, Signin};
 export default hoc(Signin);

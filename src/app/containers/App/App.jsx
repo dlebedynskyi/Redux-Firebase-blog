@@ -1,15 +1,17 @@
 import React from 'react';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
-import {withRouter} from 'react-router';
+import {Button} from 'react-toolbox/lib/button';
 import styles from './app.scss';
+
+import {withRouter} from 'react-router';
 import compose from 'recompose/compose';
 import lifecycle from 'recompose/lifecycle';
 import withHandlers from 'recompose/withHandlers';
 import urls from '../../constants/routes';
-import {Button} from 'react-toolbox/lib/button';
+
 import {connect} from 'react-redux';
-import * as selector from '../../selectors/auth';
+import selector from '../../selectors/auth';
 import doSignout from '../../actions/auth/doSignout';
 
 const mapStateToProps = (state) => ({
@@ -91,5 +93,5 @@ App.propTypes = {
 	toSignin: React.PropTypes.func.isRequired
 };
 
-export {App};
+export {hoc, App};
 export default hoc(App);

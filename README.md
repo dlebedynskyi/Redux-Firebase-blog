@@ -16,9 +16,9 @@ Demo of app is available at https://redux-blog-533c0.firebaseapp.com
 - React-Router-Redux
 - Redux
 - Redux-Thunk
-- Redux-promise
 - React-toolbox for material design
-- React-rte editor
+- React-rte  Rich text editor
+- sanitizer - CAJA html sanitizer
 - Moment
 - Firebase SDK 3 with OAuth authentication
 - Babel

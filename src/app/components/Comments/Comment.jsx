@@ -24,7 +24,12 @@ const Comment = ({comment, uid, className, onDelete}) => {
 				<CardTitle className={styles.title} subtitle={subTitle(comment)}/>
 				<CardActions className={styles.actions}>
 					{canDelete
-						? <IconButton icon="delete_forever" label="Delete" flat title="delete" onClick={onDelete}/>
+						? <IconButton
+									icon="delete_forever"
+									label="Delete" 
+									flat
+									title="delete"
+									onClick={onDelete}/>
 						: null}
 				</CardActions>
 			</div>

@@ -1,6 +1,5 @@
 import reducer from '../reducers';
 import thunk from 'redux-thunk';
-import promise from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
 import {fromJS} from 'immutable';
 /**
@@ -12,7 +11,7 @@ const configure = (initial, ...midlewares) => {
 	const imDefault = fromJS(initial || {});
   const store = createStore(reducer, imDefault, compose(
 		// thunk, promise and rest of middlewares
-    applyMiddleware(thunk, promise, ... midlewares),
+    applyMiddleware(thunk, ... midlewares),
 
 		// configure dev tools for browser
     process.env.NODE_ENV === 'development' &&

@@ -1,9 +1,12 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import {withRouter} from 'react-router';
+
 import Editor from '../../components/Editor';
+
 import urls from '../../constants/routes';
 import doCreatePost from '../../actions/posts/doCreatePost';
 
@@ -32,5 +35,5 @@ Create.propTypes = {
 		create: React.PropTypes.func.isRequired
 };
 
-export {Create};
+export {hoc, Create};
 export default hoc(Create);

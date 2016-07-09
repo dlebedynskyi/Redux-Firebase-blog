@@ -52,7 +52,7 @@ export default (getState) => {
 				onEnter: requireNoAuth(getState)
 			},
 			{
-				path: `${urls.POST}/:id`,
+				path: `${urls.POST}/:id/(:title)`,
 				component: Post
 			},
 			{

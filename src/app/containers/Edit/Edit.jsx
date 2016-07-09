@@ -11,8 +11,8 @@ import Editor from '../../components/Editor';
 import urls from '../../constants/routes';
 import doUpdatePost from '../../actions/posts/doUpdatePost';
 
-import * as posts from '../../selectors/posts';
-import * as auth from '../../selectors/auth';
+import posts from '../../selectors/posts';
+import auth from '../../selectors/auth';
 
 const mapStateToProps = (state, {params}) => ({
 	isAuthentificated: auth.isAuthentificated(state),

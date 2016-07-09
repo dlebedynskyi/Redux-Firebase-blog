@@ -13,7 +13,7 @@ import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {IconButton} from 'react-toolbox/lib/button';
 
 import subTitle from '../helpers/subTitle';
-import asHtml from '../helpers/markup';
+import asHtml from '../../services/markup';
 
 const propTypes = {
 	post: ImProp.map.isRequired,

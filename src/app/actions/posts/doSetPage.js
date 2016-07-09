@@ -1,3 +1,6 @@
 import {SET_PAGE} from '../../constants/posts';
-
-export default (page) => ({type: SET_PAGE, payload: page});
+/**
+ * Action to switch page in recent list
+ * @param page - page number
+ */
+export default (page = 0) => ({type: SET_PAGE, payload: page});

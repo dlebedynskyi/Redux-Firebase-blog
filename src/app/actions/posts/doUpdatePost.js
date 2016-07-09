@@ -1,6 +1,12 @@
 import { auth, database } from '../../services/firebase';
 import { toString } from '../../services/dates';
-
+/**
+ * Action to update post.
+	* Will throw if user is not authorized.
+ * @param  id - id of post to update
+	* @param title - new post title
+	* @param content - new post content
+ */
 const doUpdatePost = (id, title, content) =>
 	(dispatch, getState) => {
 		const state = getState();

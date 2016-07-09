@@ -5,17 +5,13 @@ import {withRouter} from 'react-router';
 import pure from 'recompose/pure';
 import lifecycle from 'recompose/lifecycle';
 
-import doGetPost from '../../actions/posts/doGetPost';
-import doGetByPost from '../../actions/comments/doGetByPost';
-import doAddComment from '../../actions/comments/doAddComment';
-import doRemoveComment from '../../actions/comments/doRemoveComment';
-import doRemovePost from '../../actions/posts/doRemovePost';
-
+import postActions from '../../actions/posts';
+import commentsActions from '../../actions/comments';
 import urls from '../../constants/routes';
 
-import * as posts from '../../selectors/posts';
-import * as comments from '../../selectors/comments';
-import * as auth from '../../selectors/auth';
+import posts from '../../selectors/posts';
+import comments from '../../selectors/comments';
+import auth from '../../selectors/auth';
 
 const mapStateToProps = (state, {params}) => ({
 	isAuthentificated: auth.isAuthentificated(state),
@@ -28,11 +24,11 @@ const mapStateToProps = (state, {params}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	get: (id) => dispatch(doGetPost(id)),
-	getComments: (id) => dispatch(doGetByPost(id)),
-	addComment: (id, content) => dispatch(doAddComment(id, content)),
-	removeComment: (postId, commentId) => dispatch(doRemoveComment(postId, commentId)),
-	removePost: (postsId) => dispatch(doRemovePost(postsId))
+	get: (id) => dispatch(postActions.doGetFullPost(id)),
+	getComments: (id) => dispatch(commentsActions.doGetByPost(id)),
+	addComment: (id, content) => dispatch(commentsActions.doAddComment(id, content)),
+	removeComment: (postId, commentId) => dispatch(commentsActions.doRemoveComment(postId, commentId)),
+	removePost: (postsId) => dispatch(postActions.doRemovePost(postsId))
 });
 
 const hoc = compose(

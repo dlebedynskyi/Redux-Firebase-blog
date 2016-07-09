@@ -10,7 +10,7 @@ import pure from 'recompose/pure';
 import {Card, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {Button} from 'react-toolbox/lib/button';
 import subTitle from '../helpers/subTitle';
-import asHtml from '../helpers/markup';
+import asHtml from '../../services/markup';
 import styles from './post.scss';
 
 const propTypes = {

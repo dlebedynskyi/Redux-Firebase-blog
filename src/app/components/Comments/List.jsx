@@ -2,7 +2,6 @@ import React from 'react';
 import ImProp from 'react-immutable-proptypes';
 import compose from 'recompose/compose';
 import pure from 'recompose/pure';
-// import {Card, CardTitle} from 'react-toolbox/lib/card';
 import classnames from 'classnames';
 import styles from './comments.scss';
 import Comment from './Comment';

@@ -1,7 +1,10 @@
 import doRemoveAllComments from '../comments/doRemoveAllComments';
-
 import { database } from '../../services/firebase';
-
+/**
+ * Action to remove post and related comments from database.
+	* Only authorized users can do this
+ * @param postId - id of post to remove
+ */
 const doRemovePost = (postId) =>
 	(dispatch, getState) => {
 		const state = getState();

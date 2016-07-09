@@ -6,29 +6,26 @@ import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import pure from 'recompose/pure';
 import lifecycle from 'recompose/lifecycle';
-import styles from './home.scss';
 
-import urls from '../../constants/routes';
+import styles from './home.scss';
 import {Short} from '../../components/Post';
 import Pagination from '../../components/Pagination';
-import doGetPosts from '../../actions/posts/doGetPosts';
+
+import urls from '../../constants/routes';
+import doGetRecentPosts from '../../actions/posts/doGetRecentPosts';
 import doSetPage from '../../actions/posts/doSetPage';
 
-import {
-	getListByPage,
-	getCurrentPage,
-	getTotalPages,
-	getTotal} from '../../selectors/posts';
+import posts from '../../selectors/posts';
 
 const mapStateToProps = (state) => ({
-	page: getListByPage(state),
-	current: getCurrentPage(state),
-	total: getTotalPages(state),
-	totalPosts: getTotal(state)
+	page: posts.getListByPage(state),
+	current: posts.getCurrentPage(state),
+	total: posts.getTotalPages(state),
+	totalPosts: posts.getTotal(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	getPosts: () => dispatch(doGetPosts()),
+	getPosts: () => dispatch(doGetRecentPosts()),
 	navigateTo: (page) => dispatch(doSetPage(page))
 });
 
@@ -42,7 +39,10 @@ const hoc = compose(
 	}),
 	withRouter,
 	withHandlers({
-		toFullPost: ({router}) => (item) => router.push(`${urls.POST}/${item.get('id')}`)
+		toFullPost: ({router}) => (item) => {
+			const title = encodeURIComponent(item.get('title'));
+			router.push(`${urls.POST}/${item.get('id')}/${title}`);
+		}
 	}), pure);
 
 const Home = ({page, current, total, navigateTo, toFullPost}) => (
@@ -75,5 +75,5 @@ Home.propTypes = {
 	toFullPost: React.PropTypes.func.isRequired
 };
 
-export {Home};
+export {hoc, Home};
 export default hoc(Home);

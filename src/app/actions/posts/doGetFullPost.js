@@ -1,8 +1,11 @@
 import { database } from '../../services/firebase';
 import { toRecord } from './mapping';
 import { SAVE_POST } from '../../constants/posts';
-
-const doGetPosts = (id) => (dispatch) => {
+/**
+ * Action to get full post data from db
+ * @param id - post id
+ */
+const doGetFullPost = (id) => (dispatch) => {
 	const post = database().ref(`posts/${id}`);
 	post.off();
 
@@ -16,4 +19,4 @@ const doGetPosts = (id) => (dispatch) => {
 	});
 };
 
-export default doGetPosts;
+export default doGetFullPost;

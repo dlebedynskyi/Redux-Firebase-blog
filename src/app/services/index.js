@@ -1,5 +1,6 @@
 import * as firebase from './firebase';
 import * as auth from './auth';
+import * as dates from './dates';
 
 const init = (dispatch, getState) => {
   const config = getState().get('firebase');
@@ -9,5 +10,6 @@ const init = (dispatch, getState) => {
 };
 
 export {
-   init
+   init,
+			dates
 };
