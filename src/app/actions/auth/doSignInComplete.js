@@ -7,7 +7,7 @@ const doSignInComplete = (user) => ({
 		type: SIGN_IN_COMPLETE,
 		payload: fromJS({
 			uid: user.uid,
-			displayName: user.displayName,
+			displayName: user.displayName || user.email,
 			email: user.email
 		})
 });
